@@ -2,6 +2,74 @@
 	width:1190px;
 	margin:0 auto;
 }
+#top{
+	background:#f4f4f4;
+	color:#666;
+	height:40px;
+	overflow: hidden;
+}
+#top .landing{
+	float:left;
+	margin-left:20px;
+}
+#top span{
+	padding:0 5px;
+	float:left;
+	font:14px/40px "";
+}
+#top a{
+	font:14px/40px "";
+	color:#666;
+	display:block;
+	float:left;
+}
+#top .shopping{
+	float:right;
+}
+#top .shopping a{
+	margin:0 10px;
+	padding:0 5px;
+}
+#top .shopping a:hover{
+	color:#0CB95F;
+}
+#top .shopping i{
+	display:block;
+	float:left;
+	width:40px;
+	height:40px;
+	background:url(../img/shopping.png) no-repeat 3px 2px;
+}
+#top .shopping i span{
+	float:left;
+}
+#top .shopping a.merchant{
+	background:#0CB95F;
+	font:14px/30px "";
+	color:#fff;
+	margin-top:5px;
+	padding:0 10px;
+	border-radius: 10px;
+}
+header .input .top .list-2{
+	width:370px;
+	overflow: hidden;
+	position:absolute;
+	top:36px;
+	left:81px;
+	background:#fff;
+	z-index: 444;
+	opacity:0.8;
+	border:1px solid #b6b6b6;
+	border-bottom: none;
+	max-height: 240px;
+}
+header ul.list-2 li{
+	height:40px;
+	font:20px/40px "";
+	color:#0CB95F;
+	border-bottom: 1px solid #999;
+}
 header{
 	height:140px;
 	position:relative;
@@ -119,7 +187,7 @@ header .input ul.ul-1 li a:hover{
 	position:absolute;
 	background:#fff;
 	opacity:0.9;
-	display:none;
+	/*display:none;*/
 	z-index: 998;
 }
 #nav ul.list li{
@@ -182,6 +250,9 @@ header .input ul.ul-1 li a:hover{
 	background:#0CB95F;
 	float:left;
 	margin:5px 8px;
+}
+#nav .position .p ul li p:hover{
+	background:#fff;
 }
 #nav .position .p ul li p a{
 	color:#fff;
@@ -385,7 +456,7 @@ main .f-1 .title .icon i.left{
 	border-top-left-radius:13px;
 	margin-right:2px;
 }
-main .f-1 .title .icon i.right{
+main .f-1 .title .icon right{
 	border-bottom-right-radius:13px;
 	border-top-right-radius:13px;
 }
@@ -587,4 +658,24 @@ footer .container p.last{
 	margin:10px 0;
 	padding:8px 0;
 	color:#959aa0;
+}
+#floor{
+	position:fixed;
+	top:300px;
+	left:100px;
+}
+#floor ul li{
+	width:50px;
+	height:50px;
+	background:#F4F4F4;
+	color:#0CB95F;
+	font:25px/50px "";
+	text-align:center;
+}
+#floor ul li:hover{
+	background:#0CB95F;
+	color:#fff;
+}
+#floor ul li:nth-child(1){
+	border-bottom:1px solid #999;
 }

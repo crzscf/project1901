@@ -21,10 +21,10 @@ for(var i=0;i<aLiList.length;i++){
 		aP[this.index].style.display = "block";
 		oPosition.onmouseover = function(){
 			oPosition.style.display = "block";
-			oList.style.display = "block";
+//			oList.style.display = "block";
 			oPosition.onmouseout = function(){
 				oPosition.style.display = "none";
-				oList.style.display = "none";
+//				oList.style.display = "none";
 			}
 		}
 	}
@@ -33,20 +33,33 @@ for(var i=0;i<aLiList.length;i++){
 	}
 }
 
-var oDt = document.querySelector(".dt");
-oDt.onmouseover = function(){
-	oList.style.display = "block";
-//	console.log(3);
-	oDt.onmouseout = function(){
-		oList.style.display = "none";
-	}
-	oList.onmouseover = function(){
-		oList.style.display = "block";
-		oList.onmouseout = function(){
-			oList.style.display = "none";
-		}
-	}
-}
+//function Search(){
+//	this.txt = document.querySelector(".txt");
+//	this.list = document.getElementById("list");
+////	this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su"
+//	this.init();
+//}
+//Search.prototype.init = function(){
+//	var that = this;
+//	this.txt.onkeyup = function(){
+////		console.log(this.value)
+//		that.val = this.value;
+//		that.load();
+//	}
+//}
+//Search.prototype.load = function(){
+//	jsonp(this.url,(res)=>{
+//		console.log(res.s)
+//	},{
+//		_name:"cb",
+//		cb:"zcsf",
+//		wd:this.val
+//	})
+//}
+//new Search();
+
+
+
 
 function Banner(){
 	this.stop = document.querySelector(".photo")
@@ -109,6 +122,59 @@ Banner.prototype.move = function(index){
 //window.onload = function(){
 	new Banner();
 //}
+$(".floor").children("li").click(function(){
+	var index = $(this).index();
+	var h = $(".content").height()+60;
+	var t = 950 + index*h;
+	$("html").animate({
+		scrollTop:t
+	})
+})
+
+
+
+function Search(){
+	this.txt = document.querySelector(".txt");
+	this.list = document.querySelector(".list-2");
+	this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+	this.init();
+}
+Search.prototype.init = function(){
+	var that = this;
+	this.txt.onkeyup = function(){
+		that.val = this.value;
+		that.load();
+	}
+}
+Search.prototype.load = function(){
+	var that = this;
+	jsonp(this.url,function(res){
+		that.res = res;
+		that.display();
+	},{
+		_name:"cb",
+		cb:"zscf",
+		wd:this.val
+	})
+}
+Search.prototype.display = function(){
+	var str = "";
+	this.res.s.forEach(function(v){
+		str += `<li>${v}</li>`;
+	})
+//	console.log(str)
+	this.list.innerHTML = str;
+}
+new Search();
+
+
+
+
+
+
+
+
+
 
 
 

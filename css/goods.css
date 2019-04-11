@@ -1,0 +1,37 @@
+.goods{
+	margin:200px 0 0 100px;
+	width:360px;
+	height:360px;
+	float:left;
+}
+.magnifier{
+	position:absolute;
+	width:360px;
+	height:360px;
+	top:200px;
+	left:460px;
+}
+.details{
+	margin-top:200px;
+	float:left;
+}
+.details ul{
+	
+}
+.details ul li{
+	overflow: hidden;
+	border-bottom: 1px dashed #e5e5e5 ;
+	width:300px;
+}
+.details ul li p{
+	width:80px;
+	color:#999;
+	font:12px/24px "";
+	float: left;
+	padding:10px 20px;
+}
+.details ul li span{
+	float:left;
+	font:14px/24px "";
+	padding:10px 0;
+}

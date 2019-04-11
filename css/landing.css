@@ -55,3 +55,11 @@
 	border:1px solid #fff;
 	margin-left:50px;
 }
+#cont .box span.content{
+	width:400px;
+	background:#0CB95F;
+	position: absolute;
+	display:block;
+	font:20px/2 "";
+	top:160px;
+}
