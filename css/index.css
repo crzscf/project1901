@@ -187,7 +187,7 @@ header .input ul.ul-1 li a:hover{
 	position:absolute;
 	background:#fff;
 	opacity:0.9;
-	/*display:none;*/
+	display:none;
 	z-index: 998;
 }
 #nav ul.list li{
@@ -517,15 +517,15 @@ main .f-1 .content .left a.line img{
 	height:60px;
 	margin:5px 0 0 3px;
 }
-main .f-1 .content .right{
+main .f-1 .content .right-2{
 	float: left;
 	width:890px;
 }
-main .f-1 .content .right ul{
+main .f-1 .content .right-2 ul{
 	border-top:1px solid #e5e5e5;
 	overflow: hidden;
 }
-main .f-1 .content .right ul li{
+main .f-1 .content .right-2 ul li{
 	width:185px;
 	height:268px;
 	padding:10px 18px;
@@ -533,26 +533,26 @@ main .f-1 .content .right ul li{
 	border-bottom:1px solid #e5e5e5;
 	float:left;
 }
-main .f-1 .content .right ul li a.img{
+main .f-1 .content .right-2 ul li a.img{
 	display:block;
 }
-main .f-1 .content .right ul li a img{
+main .f-1 .content .right-2 ul li a img{
 	width:174px;
 	height:174px;
 	display:block;
 	margin:0 auto;
 }
-main .f-1 .content .right ul li a.txt{
+main .f-1 .content .right-2 ul li a.txt{
 	margin:15px 0 0;
 	font:12px/20px "";
 	color:#333;
 }
-main .f-1 .content .right ul li p{
+main .f-1 .content .right-2 ul li p{
 	margin:5px 0;
 	font:12px/20px "";
 	color:#999;
 }
-main .f-1 .content .right ul li span{
+main .f-1 .content .right-2 ul li span{
 	color:#E50000;
 }
 #advertisement img{

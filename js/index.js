@@ -21,10 +21,10 @@ for(var i=0;i<aLiList.length;i++){
 		aP[this.index].style.display = "block";
 		oPosition.onmouseover = function(){
 			oPosition.style.display = "block";
-//			oList.style.display = "block";
+			oList.style.display = "block";
 			oPosition.onmouseout = function(){
 				oPosition.style.display = "none";
-//				oList.style.display = "none";
+				oList.style.display = "none";
 			}
 		}
 	}
@@ -32,6 +32,18 @@ for(var i=0;i<aLiList.length;i++){
 		oPosition.style.display = "none";
 	}
 }
+var oDt = document.querySelector(".dt");
+var aDd = document.querySelector("dd");
+oDt.onmouseover = function(){
+	oList.style.display = "block";
+	oList.onmouseover = function(){
+		oList.style.display = "block";
+	}
+	oList.onmouseout = function(){
+		oList.style.display = "none";
+	}
+}
+
 
 //function Search(){
 //	this.txt = document.querySelector(".txt");
@@ -134,12 +146,16 @@ $(".floor").children("li").click(function(){
 
 
 function Search(){
+
+	
 	this.txt = document.querySelector(".txt");
 	this.list = document.querySelector(".list-2");
 	this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
 	this.init();
 }
 Search.prototype.init = function(){
+
+	
 	var that = this;
 	this.txt.onkeyup = function(){
 		that.val = this.value;
@@ -150,7 +166,10 @@ Search.prototype.load = function(){
 	var that = this;
 	jsonp(this.url,function(res){
 		that.res = res;
+
+		
 		that.display();
+		
 	},{
 		_name:"cb",
 		cb:"zscf",
@@ -164,12 +183,55 @@ Search.prototype.display = function(){
 	})
 //	console.log(str)
 	this.list.innerHTML = str;
+
+
 }
+
 new Search();
 
 
+//var rightUl = document.querySelector(".right ul li");
+//rightUl.addEventListener("click",function(eve){
+//	if(eve.target.nodeName = "A"){
+//		var id = eve.target.parentNode.getAttribute("index");
+//		setCookie()
+//	}
+//})
 
 
+//function Right(){
+//
+//	this.rightLi = document.querySelectorAll(".right ul li");
+//	this.init();
+//	console.log(this.rightLi)
+////	console.log($('.right').find('ul li'))
+//}
+//Right.prototype.init = function(){
+//	var that = this;
+//	
+//	this.rightLi[0].addEventListener("click",function(eve){
+//	console.log(1)
+//		
+//		if(eve.target.nodeName == "A"){
+//			that.id = eve.target.parentNode.getAttribute("index");
+//			console.log(5)
+////			that.setCookie();
+//		}
+//	})
+//}
+//Right.prototype.setCookie = function(){
+//	this.goods = getCookie("goods");
+//	if(this.goods == ""){
+//		this.goods = [{
+//			id:this.id
+//		}];
+//	}else{
+//		this.goods = JSON.parse(this.goods);
+//		this.goods.push({id:this.id})
+//	}
+//	console.log(this.goods)
+//	setCookie("goods",JSON.stringify(this.goods))
+//}
 
 
 

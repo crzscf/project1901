@@ -52,7 +52,7 @@ class Goods{
 						<span class="mony">￥</span><span>41.00</span>
 					</div>`
 		for(var i=0;i<this.res.length;i++){
-			str +=`<li>
+			str +=`<li index="${this.res[i].goodsId}">
 						<a href="goods.html" class="img"><img src="${this.res[i].src}"/></a>
 						<a href="goods.html" class="txt">${this.res[i].name}</a>
 						<span class="mony">￥</span><span>${this.res[i].price}</span>
@@ -93,7 +93,7 @@ class Goodsfirst{
 //						<span class="mony">￥</span><span>41.00</span>
 //					</div>`
 		for(var i=0;i<this.res.length;i++){
-			str +=`<li>
+			str +=`<li index="${this.res[i].goodsId}">
 						<a href="goods.html" class="img"><img src="${this.res[i].src}"/></a>
 						<a href="goods.html" class="txt">${this.res[i].name}</a>
 						<p>${this.res[i].p}</p>
@@ -134,7 +134,7 @@ class Goodssecond{
 //						<span class="mony">￥</span><span>41.00</span>
 //					</div>`
 		for(var i=0;i<this.res.length;i++){
-			str +=`<li>
+			str +=`<li id="${this.res[i].goodsId}">
 						<a href="goods.html" class="img"><img src="${this.res[i].src}"/></a>
 						<a href="goods.html" class="txt">${this.res[i].name}</a>
 						<p>${this.res[i].p}</p>
@@ -143,6 +143,7 @@ class Goodssecond{
 		}
 		str += `</ul>`;
 		this.second.innerHTML = str;
+		new Right()
 	}
 }
 
@@ -150,3 +151,76 @@ new Goodssecond({
 	url:"./data/goods-3.json",
 	second:document.querySelector(".second")
 });
+
+
+
+
+function Right(){
+
+	this.rightLi = document.querySelectorAll(".right-2 ul li");
+	this.init();
+//	console.log(this.rightLi[10])
+//	console.log($('.right-2').find('ul li'))
+}
+Right.prototype.init = function(){
+	var that = this;
+	for(var i=0;i<this.rightLi.length;i++){
+		this.rightLi[i].addEventListener("click",function(eve){
+			if(eve.target.nodeName == "IMG"){
+				that.id = eve.target.parentNode.parentNode.getAttribute("index");
+				that.setCookie();
+				console.log(that.id)
+			}
+		})
+		
+	}
+}
+Right.prototype.setCookie = function(){
+	this.goods = getCookie("goods");
+//	if(this.goods == ""){
+//		this.goods = [{
+//			id:this.id
+//		}];
+//	}else{
+//		this.goods = JSON.parse(this.goods);
+//		this.goods.push({id:this.id})
+//	}
+	this.goods = [{
+			id:this.id
+	}];
+//	console.log(this.goods)
+	setCookie("goods",JSON.stringify(this.goods))
+}
+//function Right(){
+//
+//	this.rightLi = document.querySelectorAll(".right ul li");
+//	this.init();
+//	console.log(this.rightLi)
+////	console.log($('.right').find('ul li'))
+//}
+//Right.prototype.init = function(){
+//	var that = this;
+//	
+//	this.rightLi[0].addEventListener("click",function(eve){
+//	console.log(1)
+//		
+//		if(eve.target.nodeName == "A"){
+//			that.id = eve.target.parentNode.getAttribute("index");
+//			console.log(5)
+////			that.setCookie();
+//		}
+//	})
+//}
+//Right.prototype.setCookie = function(){
+//	this.goods = getCookie("goods");
+//	if(this.goods == ""){
+//		this.goods = [{
+//			id:this.id
+//		}];
+//	}else{
+//		this.goods = JSON.parse(this.goods);
+//		this.goods.push({id:this.id})
+//	}
+//	console.log(this.goods)
+//	setCookie("goods",JSON.stringify(this.goods))
+//}

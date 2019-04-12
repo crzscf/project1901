@@ -1,17 +1,21 @@
 [{
 	"src":"img/limit-2.png",
 	"name":"维生素D滴剂",
-	"price":"16.80"
+	"price":"16.80",
+	"goodsId":1
 },{
 	"src":"img/limit-3.png",
 	"name":"天然乳胶",
-	"price":"6.00"
+	"price":"6.00",
+	"goodsId":2
 },{
 	"src":"img/limit-4.png",
 	"name":"万通胫骨贴",
-	"price":"8.80"
+	"price":"8.80",
+	"goodsId":3
 },{
 	"src":"img/limit-5.png",
 	"name":"健胃消食片",
-	"price":"6.80"
+	"price":"6.80",
+	"goodsId":4
 }]

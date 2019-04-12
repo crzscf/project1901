@@ -6,8 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="css/public.css"/>
 		<link rel="stylesheet" type="text/css" href="css/goods.css"/>
 	</head>
-	<body>
-		<div class="goods">
+	<body id="tbody">
+		<!--<div class="goods">
 			
 		</div>
 		<div class="magnifier">
@@ -19,7 +19,92 @@
 				<li><p>生产企业</p><span>有限公司</span></li>
 				<li><p>有效期</p><span>24个月</span></li>
 				<li><p>价格</p><span>15.00</span></li>
+				<li><a href="index.html">返回首页</a><p class="shopping">加入购物车</p></li>
 			</ul>
-		</div>
+		</div>-->
+		<script src="js/cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			var oShopping = document.querySelector(".shopping");
+//			var oUl = document.querySelector("ul");
+//			oUl.addEventListener("click",function(eve){
+//				var e = eve || window.event;
+//				if(e.target.nodeName == "P"){
+//					var id = e.target.parentNode.getAttribute("index");
+////					console.log(1)
+////					setCookie()
+//					var goods = getCookie("goods")
+//					if(goods == ""){
+//						goods = [{
+//							goodsid:id,
+//							
+//							
+//						}]
+//					}else{
+//						
+//					}
+//				}
+//			})
+//			
+//			var str = document.cookie;
+
+
+
+
+			class List{
+				constructor(options){
+					this.url = options.url;
+					this.tbody = options.tbody;
+					this.load();
+				}
+				load(){
+					var that = this;
+					ajax({
+						url:this.url,
+						success:function(res){
+							that.res = JSON.parse(res);
+							that.getCookie();
+						}
+					})
+				}
+				getCookie(){
+					this.goods = JSON.parse(getCookie("goods"));
+//					console.log(this.res)
+					this.display();
+				}
+				display(){
+					var str = ""
+					for(var i=0;i<this.res.length;i++){
+						for(var j=0;j<this.goods.length;j++){
+							if(this.res[i].goodsId == this.goods[j].id){
+//								console.log(this.res[i])
+								str =` <div class="goods">
+											<img src="${this.res[i].src}"/>
+										</div>
+										<div class="magnifier">
+											
+										</div>
+										<div class="details">
+											<ul>
+												<li><p>通用名</p><span>${this.res[i].name}</span></li>
+												<li><p>生产企业</p><span>有限公司</span></li>
+												<li><p>规格</p><span>${this.res[i].p}</span></li>
+												<li><p>价格</p><span>${this.res[i].price}</span></li>
+												<li><a href="index.html">返回首页</a><p class="shopping">加入购物车</p><a href="index.html">返回首页</a></li>
+											</ul>
+										</div>`
+							}
+						}
+					}
+					
+					this.tbody.innerHTML = str;
+				}
+			}
+			new List({
+				url:"./data/goods-4.json",
+				tbody:document.getElementById("tbody")
+			})
+			
+		</script>
 	</body>
 </html>
